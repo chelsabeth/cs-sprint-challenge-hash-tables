@@ -3,8 +3,24 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    cache = {}
+    intersectNum = len(arrays)
+    result = []
+
+    # for every item in the arrays
+    # see if there are duplicates of any one num
+    # put that num in new array that will be the dup array
+    for array in arrays:
+        for num in array:
+            if num in cache:
+                cache[num] += 1
+                if cache[num] == intersectNum:
+                    result.append(num)
+            else:
+                cache[num] = 1
 
     return result
+
 
 
 if __name__ == "__main__":
